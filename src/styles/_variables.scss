@@ -1,0 +1,26 @@
+:root {
+  --grey-900: hsl(217, 19%, 35%);
+  --grey-500: hsl(214, 17%, 51%);
+  --grey-400: hsl(212, 23%, 69%);
+  --grey-200: hsl(210, 46%, 95%);
+
+  --white: hsl(0, 0%, 100%);
+
+  --font-family-base: 'Manrope';
+
+  --font-size-m: 1.25rem;
+  --font-size-s: 0.8125rem;
+
+  --line-height-m: 140%;
+  --line-height-s: 130%;
+
+  --letter-spacing-l: 25%;
+  --letter-spacing-m: 0.25px;
+  --letter-spacing-s: 0.12%;
+
+  --border-radius-card: 0.625rem;
+
+  --shadow-card: 0 2.5rem 2.5rem -0.625rem rgba(201, 213, 225, 0.5);
+
+  --transition-duration: 0.2s;
+}
