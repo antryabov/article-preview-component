@@ -256,7 +256,7 @@ body {
 
 @media (max-width: 48rem) {
   .offset-share-panel {
-    top: 0.625rem;
+    top: 0.725rem;
   }
   .preview {
     position: relative;
