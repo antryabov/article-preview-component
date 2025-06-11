@@ -6,6 +6,7 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/src/assets/images/favicon-32x32.png" />
     <title>Frontend Mentor | Article preview component</title>
     <link rel="stylesheet" href="./styles.css" />
+    <script src="/main.js" defer></script>
   </head>
   <body>
     <main class="main">
@@ -37,9 +38,44 @@
               <p class="preview__person-name">Michelle Appleton</p>
               <p class="preview__person-date">28 Jun 2020</p>
             </div>
-            <button type="button" class="preview__person-share">
-              <img src="/src/assets/images/icon-share.svg" alt="" width="15" height="13" />
-            </button>
+            <div class="preview__share-block">
+              <button type="button" class="preview__person-share" id="share-button">
+                <img src="/src/assets/images/icon-share.svg" alt="" width="15" height="13" />
+              </button>
+              <div class="preview__share-panel share-panel visually-hidden" id="share-panel">
+                <div class="share-panel__triangle"></div>
+                <div class="share-panel__text">Share</div>
+                <div class="share-panel__social-wrapper">
+                  <button class="share-panel__share-button">
+                    <img
+                      src="/src/assets/images/icon-facebook.svg"
+                      alt="Facebook link icon"
+                      class="share-panel__button-icon"
+                      width="20"
+                      height="20"
+                    />
+                  </button>
+                  <button class="share-panel__share-button">
+                    <img
+                      src="/src/assets/images/icon-twitter.svg"
+                      alt="Twitter link icon"
+                      class="share-panel__button-icon"
+                      width="20"
+                      height="20"
+                    />
+                  </button>
+                  <button class="share-panel__share-button">
+                    <img
+                      src="/src/assets/images/icon-pinterest.svg"
+                      alt="Pinterest link icon"
+                      class="share-panel__button-icon"
+                      width="20"
+                      height="20"
+                    />
+                  </button>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </article>

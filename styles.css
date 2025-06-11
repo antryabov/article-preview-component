@@ -26,6 +26,19 @@
     --content-max-width: clamp(19.4375rem, -2.5687rem + 93.8931vw, 42.5rem);
   }
 }
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
 /* https://piccalil.li/blog/a-more-modern-css-reset/ */
 /* Box sizing rules */
 *,
@@ -119,7 +132,7 @@ textarea:not([rows]) {
   --font-size-s: 0.8125rem;
   --line-height-m: 140%;
   --line-height-s: 130%;
-  --letter-spacing-l: 25%;
+  --letter-spacing-l: 3.25px;
   --letter-spacing-m: 0.25px;
   --letter-spacing-s: 0.12%;
   --border-radius-card: 0.625rem;
@@ -151,12 +164,13 @@ body {
   background-color: var(--white);
   border-radius: var(--border-radius-card);
   box-shadow: var(--shadow-card);
-  overflow: hidden;
 }
 .preview__img {
   width: 285px;
   height: auto;
   object-fit: cover;
+  border-top-left-radius: var(--border-radius-card);
+  border-bottom-left-radius: var(--border-radius-card);
 }
 .preview__info {
   display: flex;
@@ -173,8 +187,51 @@ body {
   letter-spacing: var(--letter-spacing-m);
   color: var(--grey-900);
 }
+.preview__share-block {
+  position: relative;
+  margin-left: auto;
+}
+.preview__share-block .share-panel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  top: -80px;
+  left: -108px;
+  position: absolute;
+  width: 15.5rem;
+  height: 3.4375rem;
+  gap: 1rem;
+  background-color: var(--grey-900);
+  border-radius: var(--border-radius-card);
+}
+.preview__share-block .share-panel__triangle {
+  position: absolute;
+  top: 55px;
+  width: 0;
+  height: 0;
+  border-left: 1.25rem solid transparent;
+  border-right: 1.25rem solid transparent;
+  border-top: 0.75rem solid var(--grey-900);
+}
+.preview__share-block .share-panel__text {
+  padding-inline-end: 0.5rem;
+  letter-spacing: var(--letter-spacing-l);
+  text-transform: uppercase;
+  color: var(--grey-400);
+}
+.preview__share-block .share-panel__share-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.preview__share-block .share-panel__social-wrapper {
+  display: flex;
+  gap: 1rem;
+}
 .preview__person {
   display: flex;
+  align-items: center;
   gap: 1rem;
 }
 .preview__person-img {
@@ -185,11 +242,12 @@ body {
   color: var(--grey-900);
 }
 .preview__person-share {
+  position: relative;
+  z-index: 1;
   display: grid;
   place-content: center;
   width: 2rem;
   height: 2rem;
-  margin-left: auto;
   background-color: var(--grey-200);
   border: none;
   border-radius: 50%;
@@ -197,12 +255,30 @@ body {
 }
 
 @media (max-width: 48rem) {
+  .offset-share-panel {
+    top: 0.625rem;
+  }
   .preview {
+    position: relative;
     flex-direction: column;
+    overflow: hidden;
+  }
+  .preview__share-block {
+    position: static;
+  }
+  .preview .share-panel {
+    left: 0;
+    top: calc(100% - 4.75rem);
+    height: 4.75rem;
+    width: 100%;
+    padding-inline: 1.875rem;
+    justify-content: center;
+    border-radius: 0px;
   }
   .preview__img {
     width: 100%;
     max-height: 12.5rem;
+    border-radius: 0px;
   }
   .preview__info {
     padding-inline: clamp(1.875rem, 1.7557rem + 0.5089vw, 2rem);

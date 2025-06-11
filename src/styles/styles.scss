@@ -24,12 +24,13 @@ body {
   background-color: var(--white);
   border-radius: var(--border-radius-card);
   box-shadow: var(--shadow-card);
-  overflow: hidden;
 
   &__img {
     width: 285px;
     height: auto;
     object-fit: cover;
+    border-top-left-radius: var(--border-radius-card);
+    border-bottom-left-radius: var(--border-radius-card);
   }
 
   &__info {
@@ -49,8 +50,56 @@ body {
     color: var(--grey-900);
   }
 
+  &__share-block {
+    position: relative;
+    margin-left: auto;
+
+    .share-panel {
+      @include flex-center;
+
+      position: relative;
+      top: -80px;
+      left: -108px;
+      position: absolute;
+      width: 15.5rem;
+      height: 3.4375rem;
+      gap: 1rem;
+      background-color: var(--grey-900);
+      border-radius: var(--border-radius-card);
+
+      &__triangle {
+        position: absolute;
+        top: 55px;
+        width: 0;
+        height: 0;
+        border-left: 1.25rem solid transparent;
+        border-right: 1.25rem solid transparent;
+        border-top: 0.75rem solid var(--grey-900);
+      }
+
+      &__text {
+        padding-inline-end: 0.5rem;
+        letter-spacing: var(--letter-spacing-l);
+        text-transform: uppercase;
+        color: var(--grey-400);
+      }
+
+      &__share-button {
+        background: none;
+        border: none;
+        cursor: pointer;
+      }
+
+      &__social-wrapper {
+        display: flex;
+        gap: 1rem;
+      }
+    }
+  }
+
   &__person {
     display: flex;
+    align-items: center;
 
     gap: 1rem;
 
@@ -64,11 +113,12 @@ body {
     }
 
     &-share {
+      position: relative;
+      z-index: 1;
       display: grid;
       place-content: center;
       width: 2rem;
       height: 2rem;
-      margin-left: auto;
       background-color: var(--grey-200);
       border: none;
       border-radius: 50%;
@@ -78,12 +128,33 @@ body {
 }
 
 @media (max-width: 48rem) {
+  .offset-share-panel {
+    top: 0.625rem;
+  }
+
   .preview {
+    position: relative;
     flex-direction: column;
+    overflow: hidden;
+
+    &__share-block {
+      position: static;
+    }
+
+    .share-panel {
+      left: 0;
+      top: calc(100% - 4.75rem);
+      height: 4.75rem;
+      width: 100%;
+      padding-inline: 1.875rem;
+      justify-content: center;
+      border-radius: 0px;
+    }
 
     &__img {
       width: 100%;
       max-height: 12.5rem;
+      border-radius: 0px;
     }
 
     &__info {
